@@ -19,3 +19,11 @@ else
 
   export PATH=$BASE_PATH$PATH_EXTENSION
 fi
+
+if [[ "$(ls {{ alias_directory }})" == "" ]]; then
+  echo "empty alias directory"
+else
+  for alias_file in {{ alias_directory }}/*; do
+    source $alias_file
+  done
+fi
