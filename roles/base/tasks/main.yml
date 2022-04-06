@@ -53,7 +53,7 @@
     path: ~/.zshrc
   when: zsh.stat.exists
 
-- name: install required
+- name: install basic packages
   become: true
   ansible.builtin.apt:
     force_apt_get: yes
