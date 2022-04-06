@@ -13,7 +13,11 @@ if [[ "$(which ansible)" == "" ]]; then
     export PATH=$PATH:~/.local/bin
 fi
 
-[[ -d /tmp/ansible ]] || git clone https://github.com/ibacangan/ansible.git /tmp/ansible
+if [[ -d /tmp/ansible ]]; then
+    cd /tmp/ansible && git pull
+else
+    git clone https://github.com/ibacangan/ansible.git /tmp/ansible
+fi
 
 cd /tmp/ansible
 
