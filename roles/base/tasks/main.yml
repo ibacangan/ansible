@@ -1,0 +1,79 @@
+---
+- name: create workspace directory
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ script_directory }}"
+    - "{{ alias_directory }}"
+    - "{{ export_directory }}"
+    - "{{ path_env_directory }}"
+
+- name: install plain scripts
+  ansible.builtin.copy:
+    src: script/
+    dest: "{{ script_directory }}"
+    mode: 0700
+
+- name: install template scripts
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: "{{ script_directory }}"
+    mode: 0700
+  with_fileglob: ../templates/script/*
+
+- name: create alias directory
+  ansible.builtin.file:
+    path: "{{ alias_directory }}"
+    state: directory
+
+- name: copy alias files
+  ansible.builtin.copy:
+    src: alias/
+    dest: "{{ alias_directory }}"
+
+- name: copy shell extension
+  ansible.builtin.template:
+    src: shell_extension.sh
+    dest: "{{ system_directory }}/shell_extension.sh"
+
+- name: load shell extension to bash
+  ansible.builtin.lineinfile:
+    line: "source {{ system_directory }}/shell_extension.sh"
+    path: ~/.bashrc
+
+- name: check if zsh is installed
+  ansible.builtin.stat:
+    path: ~/.zshrc
+  register: zsh
+
+- name: load shell extension to zsh
+  ansible.builtin.lineinfile:
+    line: "source {{ system_directory }}/shell_extension.sh"
+    path: ~/.zshrc
+  when: zsh.stat.exists
+
+- name: install required
+  become: true
+  ansible.builtin.apt:
+    force_apt_get: yes
+    update_cache: yes
+    pkg:
+      - python3
+      - python3-pip
+      - git
+      - keepass2
+      - nethogs
+      - gparted
+      - httpie
+      - curl
+      - zip
+      - snap
+      - openssh-server
+      - jq
+      - mpv
+      - libssl-dev
+      - pavucontrol
+  tags:
+    - never
+    - personal

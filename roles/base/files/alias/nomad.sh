@@ -1,0 +1,35 @@
+a n=nomad
+
+a ng='n agent'
+a ngc='ng -config'
+a ngd='ng -dev'
+
+a nj='n job'
+a njs='nj status'
+a njr='nj run'
+a njri='njr -check-index'
+a nji='nj init'
+a njp='nj plan'
+a njo='nj promote'
+a njd='nj deployments'
+a njt='nj stop'
+
+a na='n alloc'
+a nas='ns status'
+
+a nd='n deployment'
+a ndl='nd list'
+a ndf='nd fail'
+a ndp='nd promote'
+a ndr='nd resume'
+a nds='nd status'
+a ndo='nd pause'
+a ndu='nd unblock'
+
+a no='n operator'
+a noa='no autopilot'
+a nod='no debug'
+a nokg='no keygen'
+a nokr='no keyring'
+a nor='no raft'
+a nos='no snapshot'

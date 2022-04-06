@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+for export_file in {{ export_directory }}/*; do
+  export $(echo $export_file | awk -F'/' '{print $NF}')=$(cat $export_file)
+done
+
+PATH_EXTENSION=""
+
+for path_env_file in {{ path_env_directory }}/*; do
+  PATH_EXTENSION=$PATH_EXTENSION:$(cat $path_env_file | envsubst)
+done
+
+export PATH=$BASE_PATH$PATH_EXTENSION

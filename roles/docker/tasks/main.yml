@@ -1,0 +1,63 @@
+---
+- name: uninstall old docker version
+  ansible.builtin.apt:
+    pkg:
+      - docker
+      - docker-engine
+      - docker.io
+    state: absent
+
+- name: install pre-requisites
+  ansible.builtin.apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+    state: latest
+    update_cache: yes
+
+- name: install docker apt key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: install docker apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_facts.lsb.codename }}  stable"
+
+- name: install docker-ce
+  ansible.builtin.apt:
+    pkg: docker-ce
+    state: latest
+    update_cache: yes
+
+- name: install docker python module
+  pip:
+    name: docker
+    executable: pip3
+
+- name: pull docker images
+  community.docker.docker_image:
+    name: "{{ item.key }}"
+    tag: "{{ item.value }}"
+    source: pull
+  with_dict:
+    ubuntu: '20.04'
+    grafana/grafana: 'master'
+    grafana/loki: 'master'
+    grafana/promtail: 'master'
+    grafana/tempo: 'latest'
+    grafana/tempo-query: 'latest'
+    grafana/agent: 'latest'
+    prom/prometheus: 'master'
+    prom/alertmanager: 'master'
+    redis: '6'
+    redislabs/redisinsight: 'latest'
+    nginx: '1.19'
+    rust: '1'
+    mysql: '8'
+    busybox: 'latest'
+  tags:
+    - never
+    - personal
+    - pull_images
