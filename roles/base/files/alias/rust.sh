@@ -1,11 +1,11 @@
-a cg=cargo
+alias cg=cargo
 
-a cgr='cg run'
+alias cgr='cg run'
 
-a cgu='cg update'
+alias cgu='cg update'
 
-a cgb='cg build'
-a cgbr='cgb --release'
+alias cgb='cg build'
+alias cgbr='cgb --release'
 
 function cgt() {
     cargo test $1 -- --show-output
@@ -17,22 +17,22 @@ function cgti() {
     cargo test $1 -- --ignored
 }
 
-a cgn='cg new'
-a cgnl='cgn --lib'
+alias cgn='cg new'
+alias cgnl='cgn --lib'
 
-a cgc='cg clippy'
+alias cgc='cg clippy'
 
-a cgf='cg fmt'
+alias cgf='cg fmt'
 
-a cgwf='cg watch -x fmt'
-a cgwr='cg watch -x run'
+alias cgwf='cg watch -x fmt'
+alias cgwr='cg watch -x run'
 
-a cgi='cg install'
+alias cgi='cg install'
 
-a cgin='cg init'
+alias cgin='cg init'
 
-a cgun='cg uninstall'
+alias cgun='cg uninstall'
 
-a cgu='cg update'
+alias cgu='cg update'
 
-a cgs='cg search'
+alias cgs='cg search'

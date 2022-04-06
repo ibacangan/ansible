@@ -1,50 +1,50 @@
-a d=docker
+alias d=docker
 
-a dil='d image ls | sort'
-a dip='d image prune -f'
-a dir='d image rm'
-a di='d inspect'
+alias dil='d image ls | sort'
+alias dip='d image prune -f'
+alias dir='d image rm'
+alias di='d inspect'
 
-a dcl='d container ls -a'
-a dcp='d container prune -f'
-a dcs='d container stop'
-a dcss='d container start'
-a dcr='d container restart'
+alias dcl='d container ls -a'
+alias dcp='d container prune -f'
+alias dcs='d container stop'
+alias dcss='d container start'
+alias dcr='d container restart'
 function _dcsr() { docker container stop $1; docker container rm $1; }
-a dcsr=_dcsr
+alias dcsr=_dcsr
 
-a dcu='docker-compose up --remove-orphans'
-a dcud='docker-compose up --remove-orphans -d'
-a dcd='docker-compose down --volumes --remove-orphans'
+alias dcu='docker-compose up --remove-orphans'
+alias dcud='docker-compose up --remove-orphans -d'
+alias dcd='docker-compose down --volumes --remove-orphans'
 
-a dp='d pull'
-a dpp='d pull --tls-verify=false'
-a dps='d push --tls-verify=false --format=docker --creds'
+alias dp='d pull'
+alias dpp='d pull --tls-verify=false'
+alias dps='d push --tls-verify=false --format=docker --creds'
 
-a dl='d logs -f'
+alias dl='d logs -f'
 
-a dup=docker_update
+alias dup=docker_update
 
-a dr='d run --rm'
-a drd='d run --rm -d --name'
-a dri='d run --rm -it'
-a drin='d run --rm -it --name'
+alias dr='d run --rm'
+alias drd='d run --rm -d --name'
+alias dri='d run --rm -it'
+alias drin='d run --rm -it --name'
 
-a db='d build --rm -t'
+alias db='d build --rm -t'
 
-a dvl='d volume ls'
-a dvc='d volume create'
-a dvr='d volume rm'
-a dvp='d volume prune'
-a dvi='d volume inspect'
+alias dvl='d volume ls'
+alias dvc='d volume create'
+alias dvr='d volume rm'
+alias dvp='d volume prune'
+alias dvi='d volume inspect'
 
-a de='d exec -it'
+alias de='d exec -it'
 
-a dnl='d network ls'
-a dnc='d network create'
-a dnco='d network create --driver=overlay --attachable'
-a dnr='d network rm'
-a dni='d network inspect'
-a dnp='d network prune'
-a dnn='d network connect'
-a dnd='d network disconnect'
+alias dnl='d network ls'
+alias dnc='d network create'
+alias dnco='d network create --driver=overlay --attachable'
+alias dnr='d network rm'
+alias dni='d network inspect'
+alias dnp='d network prune'
+alias dnn='d network connect'
+alias dnd='d network disconnect'

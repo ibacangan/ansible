@@ -1,6 +1,6 @@
-a sys=systemctl
-a sysa='systemctl start'
-a syso='systemctl stop'
-a sysr='systemctl reload'
-a syse='systemctl enable'
-a sysd='systemctl disable'
+alias sys=systemctl
+alias sysa='systemctl start'
+alias syso='systemctl stop'
+alias sysr='systemctl reload'
+alias syse='systemctl enable'
+alias sysd='systemctl disable'

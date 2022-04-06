@@ -1,7 +1,7 @@
-a apts='sudo apt search'
-a apti='sudo apt-get install -y'
-a aptu='sudo apt-get update -y \
+alias apts='sudo apt search'
+alias apti='sudo apt-get install -y'
+alias aptu='sudo apt-get update -y \
         && sudo apt-get upgrade -y \
         && sudo apt-get autoremove -y \
         && sudo apt-get autoclean'
-a aptp='sudo apt-get purge'
+alias aptp='sudo apt-get purge'

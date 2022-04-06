@@ -1,36 +1,36 @@
-a g='git'
+alias g='git'
 
-a ga='g add'
+alias ga='g add'
 
-a gpl='g pull'
+alias gpl='g pull'
 
-a gps='git push'
-a gpso='g push origin'
-a gpsom='g push origin master'
-a gpson='g push origin main'
+alias gps='git push'
+alias gpso='g push origin'
+alias gpsom='g push origin master'
+alias gpson='g push origin main'
 
-a gs='g status'
-a gst='g stash'
-a gstp='g stash pop'
+alias gs='g status'
+alias gst='g stash'
+alias gstp='g stash pop'
 
-a gcm='g commit -m'
-a gcma='g commit --amend -m'
+alias gcm='g commit -m'
+alias gcma='g commit --amend -m'
 
-a gch='g checkout'
-a gchb='g checkout -b'
+alias gch='g checkout'
+alias gchb='g checkout -b'
 
-a gcf='g config'
-a gcfl='g config list'
-a gcfn='g config user.name'
-a gcfe='g config user.email'
-a gcfc='gcfn ibacangan && gcfn i.bacangan@gmail.com'
+alias gcf='g config'
+alias gcfl='g config list'
+alias gcfn='g config user.name'
+alias gcfe='g config user.email'
+alias gcfc='gcfn ibacangan && gcfn i.bacangan@gmail.com'
 
-a gcl='g clone'
+alias gcl='g clone'
 
-a grh='g reset --hard'
+alias grh='g reset --hard'
 
-a gd='g diff'
+alias gd='g diff'
 
-a gl='g log'
+alias gl='g log'
 
-a gi='g init && gcfc'
+alias gi='g init && gcfc'

@@ -1,44 +1,44 @@
-a zz='source ~/.zshrc'
-a bb='source ~/.bashrc'
+alias zz='source ~/.zshrc'
+alias bb='source ~/.bashrc'
 
-a rr='rm --recursive --force'
+alias rr='rm --recursive --force'
 
-a qq=exit
+alias qq=exit
 
-a ag='alias | rg -i'
-a hh='history | rg -i'
+alias ag='alias | rg -i'
+alias hh='history | rg -i'
 
-a watch='watch --color '
+alias watch='watch --color '
 
-a md='mkdir -p'
+alias md='mkdir -p'
 function mcd() {
   mkdir -p $1 && cd $1
 }
 
-a boot='sudo reboot -h 0'
-a shut='sudo shutdown -h 0'
+alias boot='sudo reboot -h 0'
+alias shut='sudo shutdown -h 0'
 
-a l="ls --almost-all --classify --human-readable -lt --color"
-a le="less --ignore-case --raw-control-chars --squeeze-blank-lines"
+alias l="ls --almost-all --classify --human-readable -lt --color"
+alias le="less --ignore-case --raw-control-chars --squeeze-blank-lines"
 
-a px='ps aux'
-a df='df --human-readable --inodes'
-a du1='du --max-depth 1 --human-readable ./ | sort --human-readable'
+alias px='ps aux'
+alias df='df --human-readable --inodes'
+alias du1='du --max-depth 1 --human-readable ./ | sort --human-readable'
 
 # TODO: improve
-a kp='keepass2 /workspace/personal/python/install/qq.kdbx &>/dev/null &'
+alias kp='keepass2 /workspace/personal/python/install/qq.kdbx &>/dev/null &'
 
-a rsync='rsync -av --progress $1 $2'
+alias rsync='rsync -av --progress $1 $2'
 
 function search_alias() {
   [[ -z $1 ]] && echo no input to search && return 1
 
-  alias=$(a $1)
+  alias=$(alias $1)
   search_dir=/workspace/personal/infra/setup/roles/alias/files/
   alias_file=""
 
   if [[ -z $alias ]]; then # search as plain alias definition
-    alias_file=$(rg -l "a $1[a-zA-Z0-9]*=" $search_dir)
+    alias_file=$(rg -l "alias $1[a-zA-Z0-9]*=" $search_dir)
   fi
 
   if [[ -z $alias ]]; then # search as function

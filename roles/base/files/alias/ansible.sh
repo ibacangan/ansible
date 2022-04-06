@@ -1,22 +1,22 @@
-a an=ansible
+alias an=ansible
 
-a agg=ansible-galaxy
-a agh='agg --help'
-a agi='agg role init --offline'
+alias agg=ansible-galaxy
+alias agh='agg --help'
+alias agi='agg role init --offline'
 
-a ad=ansible-doc
-a adl='ansible-doc -l'
+alias ad=ansible-doc
+alias adl='ansible-doc -l'
 
-a ap=ansible-playbook
-a apl='ansible-playbook -i localhosts'
-a aplv='ansible-playbook -i localhosts --vault-password-file .key'
-a aph='ansible-playbook --help'
+alias ap=ansible-playbook
+alias apl='ansible-playbook -i localhosts'
+alias aplv='ansible-playbook -i localhosts --vault-password-file .key'
+alias aph='ansible-playbook --help'
 
-a av=ansible-vault
-a avh='av --help'
-a ave='av encrypt'
-a avs='av encrypt_string'
-a avd='av decrypt'
+alias av=ansible-vault
+alias avh='av --help'
+alias ave='av encrypt'
+alias avs='av encrypt_string'
+alias avd='av decrypt'
 
 function avef() {
     ansible-vault encrypt $1 --vault-password-file $2

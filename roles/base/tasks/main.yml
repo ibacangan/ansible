@@ -1,4 +1,26 @@
 ---
+- name: install basic packages
+  become: true
+  ansible.builtin.apt:
+    force_apt_get: yes
+    update_cache: yes
+    pkg:
+      - python3
+      - python3-pip
+      - git
+      - keepass2
+      - nethogs
+      - gparted
+      - httpie
+      - curl
+      - zip
+      - snap
+      - openssh-server
+      - jq
+      - mpv
+      - libssl-dev
+      - pavucontrol
+      
 - name: create workspace directory
   ansible.builtin.file:
     path: "{{ item }}"
@@ -52,25 +74,3 @@
     line: "source {{ system_directory }}/shell_extension.sh"
     path: ~/.zshrc
   when: zsh.stat.exists
-
-- name: install basic packages
-  become: true
-  ansible.builtin.apt:
-    force_apt_get: yes
-    update_cache: yes
-    pkg:
-      - python3
-      - python3-pip
-      - git
-      - keepass2
-      - nethogs
-      - gparted
-      - httpie
-      - curl
-      - zip
-      - snap
-      - openssh-server
-      - jq
-      - mpv
-      - libssl-dev
-      - pavucontrol
