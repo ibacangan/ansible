@@ -53,11 +53,8 @@
     prom/alertmanager: 'master'
     redis: '6'
     redislabs/redisinsight: 'latest'
-    nginx: '1.19'
+    nginx: '1'
     rust: '1'
     mysql: '8'
     busybox: 'latest'
-  tags:
-    - never
-    - personal
-    - pull_images
+    mikefarah/yq: 'latest'

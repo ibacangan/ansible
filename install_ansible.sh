@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt upgrade
-sudo apt install \
+sudo apt upgrade -y
+sudo apt install -y \
     python3 \
     python3-pip \
     git
 
-pip install ansible
+pip3 install ansible
 
-git clone https://github.com/ibacangan/setup.git /tmp/setup
+[[ -d /tmp/ansible ]] || git clone https://github.com/ibacangan/ansible.git /tmp/ansible
 
-cd /tmp/setup
-ansible-playbook -i localhost
+cd /tmp/ansible
+
+export PATH=$PATH:~/.local/bin
+
+ansible-galaxy install -r requirements.yaml
+ansible-playbook -i localhost install.yaml

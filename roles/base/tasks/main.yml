@@ -74,6 +74,3 @@
       - mpv
       - libssl-dev
       - pavucontrol
-  tags:
-    - never
-    - personal
