@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
-for export_file in {{ export_directory }}/*; do
-  export $(echo $export_file | awk -F'/' '{print $NF}')=$(cat $export_file)
-done
+if [[ "$(ls {{ export_directory }})" == "" ]]; then
+  echo "empty export directory"
+else
+  for export_file in {{ export_directory }}/*; do
+    export $(echo $export_file | awk -F'/' '{print $NF}')=$(cat $export_file)
+  done
+fi
 
-PATH_EXTENSION=""
+if [[ "$(ls {{ path_env_directory }})" == "" ]]; then
+  echo "empty path env directory"
+else
+  PATH_EXTENSION=""
 
-for path_env_file in {{ path_env_directory }}/*; do
-  PATH_EXTENSION=$PATH_EXTENSION:$(cat $path_env_file | envsubst)
-done
+  for path_env_file in {{ path_env_directory }}/*; do
+    PATH_EXTENSION=$PATH_EXTENSION:$(cat $path_env_file | envsubst)
+  done
 
-export PATH=$BASE_PATH$PATH_EXTENSION
+  export PATH=$BASE_PATH$PATH_EXTENSION
+fi
