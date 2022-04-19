@@ -3,15 +3,15 @@ alias d=docker
 alias dil='d image ls | sort'
 alias dip='d image prune -f'
 alias dir='d image rm'
+
 alias di='d inspect'
 
 alias dcl='d container ls -a'
 alias dcp='d container prune -f'
-alias dcs='d container stop'
-alias dcss='d container start'
+alias dcs='d container start'
+alias dcS='d container stop'
 alias dcr='d container restart'
-function _dcsr() { docker container stop $1; docker container rm $1; }
-alias dcsr=_dcsr
+function dcsr() { docker container stop $1; docker container rm $1; }
 
 alias dcu='docker-compose up --remove-orphans'
 alias dcud='docker-compose up --remove-orphans -d'
@@ -20,10 +20,9 @@ alias dcd='docker-compose down --volumes --remove-orphans'
 alias dp='d pull'
 alias dpp='d pull --tls-verify=false'
 alias dps='d push --tls-verify=false --format=docker --creds'
+alias dP='d push'
 
 alias dl='d logs -f'
-
-alias dup=docker_update
 
 alias dr='d run --rm'
 alias drd='d run --rm -d --name'

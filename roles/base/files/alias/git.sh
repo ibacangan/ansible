@@ -2,12 +2,11 @@ alias g='git'
 
 alias ga='g add'
 
-alias gpl='g pull'
+alias gP='g pull'
 
-alias gps='git push'
-alias gpso='g push origin'
-alias gpsom='g push origin master'
-alias gpson='g push origin main'
+alias gp='git push'
+alias gpom='g push origin master'
+alias gpo='g push origin main'
 
 alias gs='g status'
 alias gst='g stash'

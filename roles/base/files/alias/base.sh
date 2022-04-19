@@ -11,7 +11,7 @@ alias hh='history | rg -i'
 alias watch='watch --color '
 
 alias md='mkdir -p'
-function mcd() {
+mcd() {
   mkdir -p $1 && cd $1
 }
 
@@ -30,7 +30,7 @@ alias kp='keepass2 /workspace/personal/python/install/qq.kdbx &>/dev/null &'
 
 alias rsync='rsync -av --progress $1 $2'
 
-function search_alias() {
+search_alias() {
   [[ -z $1 ]] && echo no input to search && return 1
 
   alias=$(alias $1)

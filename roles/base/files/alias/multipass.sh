@@ -14,6 +14,6 @@ alias mph='m help'
 alias mpl1='m launch -c 1 -m 2G -d 10G -n'
 alias mpl2='m launch -c 2 -m 4G -d 10G -n'
 
-function mplx() {
+mplx() {
     mp launch -n $1 -c $2 -m $3 -d $4
 }

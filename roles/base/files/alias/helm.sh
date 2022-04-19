@@ -17,10 +17,11 @@ alias hsh='h search hub'
 
 alias hun='h uninstall'
 alias hup='h upgrade --install --atomic --timeout 3m'
+alias hups='h upgrade --install --atomic --timeout 30s'
 alias hup5='h upgrade --install --atomic --timeout 5m'
 alias hup10='h upgrade --install --atomic --timeout 10m'
 
-alias hl='h ls -a'
+alias hl='h ls --all --all-namespaces'
 
 alias hc='h create'
 

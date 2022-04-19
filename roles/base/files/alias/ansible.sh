@@ -18,14 +18,14 @@ alias ave='av encrypt'
 alias avs='av encrypt_string'
 alias avd='av decrypt'
 
-function avef() {
+avef() {
     ansible-vault encrypt $1 --vault-password-file $2
 }
 
-function avEf() {
+avEf() {
     ansible-vault encrypt_string $1 --vault-password-file $2
 }
 
-function avdf() {
+avdf() {
     ansible-vault decrypt $1 --vault-password-file $2
 }
