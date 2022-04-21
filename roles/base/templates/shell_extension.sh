@@ -1,3 +1,6 @@
+ZSH_THEME="fino-time"
+source $ZSH/oh-my-zsh.sh
+
 alias a=alias
 a e=export
 
@@ -7,6 +10,3 @@ e BASE_PATH=$PATH:$LOCAL_BIN:{{ script_directory }}
 e PATH=$BASE_PATH
 
 . refresh_env
-
-# add time to zsh prompt
-echo $SHELL | grep -q zsh && PS1="%D{%L:%M:%S} $PS1"
