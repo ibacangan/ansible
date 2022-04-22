@@ -1,12 +1,12 @@
 alias zz='source ~/.zshrc'
 alias bb='source ~/.bashrc'
 
-alias rr='rm --recursive --force'
+alias rmf='rm --recursive --force'
 
-alias qq=exit
+alias q=exit
 
-alias ag='alias | rg -i'
-alias hh='history | rg -i'
+alias ag='alias | grep -i'
+alias hh='history | grep -i'
 
 alias watch='watch --color '
 
@@ -34,19 +34,19 @@ search_alias() {
   [[ -z $1 ]] && echo no input to search && return 1
 
   alias=$(alias $1)
-  search_dir=/workspace/personal/infra/setup/roles/alias/files/
+  search_dir=~/workspace/system/alias
   alias_file=""
 
   if [[ -z $alias ]]; then # search as plain alias definition
-    alias_file=$(rg -l "alias $1[a-zA-Z0-9]*=" $search_dir)
+    alias_file=$(grep -l "alias $1[a-zA-Z0-9]*=" ${search_dir}/*)
   fi
 
   if [[ -z $alias ]]; then # search as function
-    alias_file=$(rg -l "function $1[a-zA-Z0-9]*()" $search_dir)
+    alias_file=$(grep -l "$1[a-zA-Z0-9]*()" ${search_dir}/*)
   fi
 
   if [[ -z $alias ]]; then # make a plain generic search
-    alias_file=$(rg -l "$1" $search_dir)
+    alias_file=$(grep -l "$1" ${search_dir}/*)
   fi
 
   if [[ -n $alias ]]; then
@@ -55,10 +55,17 @@ search_alias() {
 
   elif [[ -n $alias_file ]]; then
     echo "found $1 in an alias definition file"
-    alias_file=$(echo $alias_file | mapfile)
-    for file in $alias_file; do
-      bat -P $file
+
+    tmp_file=${RANDOM}${RANDOM}
+    echo $alias_file > /tmp/$tmp_file
+
+    for file in $(< /tmp/$tmp_file); do
+      echo "$file -------------------------------\n"
+      cat $file
+      echo
     done
+
+    rm /tmp/$tmp_file
 
   else
     echo "$1 not found as an alias or in any alias file"

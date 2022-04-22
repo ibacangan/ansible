@@ -8,9 +8,9 @@ alias ad=ansible-doc
 alias adl='ansible-doc -l'
 
 alias ap=ansible-playbook
-alias apl='ansible-playbook -i localhosts'
-alias aplv='ansible-playbook -i localhosts --vault-password-file .key'
-alias aph='ansible-playbook --help'
+alias apl='ap -i localhosts'
+alias aplv='ap -i localhosts --vault-password-file .key'
+alias aph='ap --help'
 
 alias av=ansible-vault
 alias avh='av --help'

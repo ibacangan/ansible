@@ -1,19 +1,16 @@
 alias mp=multipass
-alias mpl='m list'
-alias mpd='m delete'
-alias mpp='m purge'
-alias mpf='m find'
-alias mpe='m exec'
-alias mpi='m info'
-alias mpr='m restart'
-alias mps='m start'
-alias mpS='m stop'
-alias mpsh='m shell'
-alias mph='m help'
+alias mpl='mp list'
+alias mpd='mp delete'
+alias mpp='mp purge'
+alias mpf='mp find'
+alias mpe='mp exec'
+alias mpi='mp info'
+alias mpr='mp restart'
+alias mps='mp start'
+alias mpS='mp stop'
+alias mpsh='mp shell'
+alias mph='mp help'
 
-alias mpl1='m launch -c 1 -m 2G -d 10G -n'
-alias mpl2='m launch -c 2 -m 4G -d 10G -n'
-
-mplx() {
-    mp launch -n $1 -c $2 -m $3 -d $4
-}
+alias mpl_1c_2G_10g='mp launch -c 1 -m 2G -d 10G -n'
+alias mpl_2c_4G_20g='mp launch -c 2 -m 4G -d 20G -n'
+alias mpl_4c_8G_50g='mp launch -c 4 -m 8G -d 50G -n'

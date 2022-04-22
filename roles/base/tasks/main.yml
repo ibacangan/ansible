@@ -20,7 +20,33 @@
       - mpv
       - libssl-dev
       - pavucontrol
-      
+      - vim
+
+      - qemu-kvm
+      - libvirt-clients 
+      - libvirt-daemon-system 
+      - bridge-utils
+      - cockpit
+      - cockpit-machines
+
+- name: install snap non-classic snaps
+  community.general.snap:
+    name: "{{ item }}"
+  loop:
+    - multipass
+    - brave
+  become: true
+
+- name: install snap classic snaps
+  community.general.snap:
+    name: "{{ item }}"
+    classic: yes
+  loop:
+    - intellij-idea-ultimate
+    - clion
+    - datagrip
+  become: true
+
 - name: create workspace directory
   ansible.builtin.file:
     path: "{{ item }}"
@@ -74,3 +100,15 @@
     line: "source {{ system_directory }}/shell_extension.sh"
     path: ~/.zshrc
   when: zsh.stat.exists
+
+- name: setup global git config user name
+  community.general.git_config:
+    name: user.name
+    value: ibacangan
+    scope: global
+
+- name: setup global git config user email
+  community.general.git_config:
+    name: user.email
+    value: i.bacangan@gmail.com
+    scope: global

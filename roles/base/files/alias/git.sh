@@ -4,7 +4,7 @@ alias ga='g add'
 
 alias gP='g pull'
 
-alias gp='git push'
+alias gp='g push'
 alias gpom='g push origin master'
 alias gpo='g push origin main'
 
@@ -19,10 +19,10 @@ alias gch='g checkout'
 alias gchb='g checkout -b'
 
 alias gcf='g config'
-alias gcfl='g config list'
+alias gcfl='g config --list'
 alias gcfn='g config user.name'
 alias gcfe='g config user.email'
-alias gcfc='gcfn ibacangan && gcfn i.bacangan@gmail.com'
+alias gcfc='gcfn ibacangan && gcfe i.bacangan@gmail.com'
 
 alias gcl='g clone'
 
