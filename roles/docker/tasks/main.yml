@@ -32,9 +32,15 @@
     update_cache: yes
 
 - name: install docker python module
-  pip:
+  ansible.builtin.pip:
     name: docker
     executable: pip3
+
+- name: add user to group
+  ansible.builtin.user:
+    name: u
+    groups: docker
+    append: yes
 
 - name: pull docker images
   community.docker.docker_image:
