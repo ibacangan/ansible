@@ -126,9 +126,27 @@
     repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_facts.lsb.codename }} main"
   become: true
 
-- name: install docker-ce
+- name: install terraform
   ansible.builtin.apt:
     pkg: terraform
     state: latest
     update_cache: yes
   become: true
+
+- name: install helm repositories
+  kubernetes.core.helm_repository:
+    name: "{{ item.key }}"
+    repo_url: "{{ item.value }}"
+  loop: "{{ list | dict2items }}"
+  vars:
+    list:
+      openebs: https://openebs.github.io/charts
+      grafana: https://grafana.github.io/helm-charts
+      prometheus-community: https://prometheus-community.github.io/helm-charts
+      metallb: https://metallb.github.io/metallb
+      cert-manager: https://charts.jetstack.io
+      sealed-secrets: https://bitnami-labs.github.io/sealed-secrets
+      argo: https://argoproj.github.io/argo-helm
+      dex: https://charts.dexidp.io
+      ingress-nginx: https://kubernetes.github.io/ingress-nginx
+      kubernetes-replicator: https://helm.mittwald.de
