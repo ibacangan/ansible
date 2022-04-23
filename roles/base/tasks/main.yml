@@ -35,6 +35,7 @@
   loop:
     - multipass
     - brave
+    - spotify
   become: true
 
 - name: install snap classic snaps
@@ -45,6 +46,8 @@
     - intellij-idea-ultimate
     - clion
     - datagrip
+    - kubectl
+    - helm
   become: true
 
 - name: create workspace directory
@@ -112,3 +115,20 @@
     name: user.email
     value: i.bacangan@gmail.com
     scope: global
+
+- name: install hashicorp apt key
+  ansible.builtin.apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+  become: true
+
+- name: install hashicorp apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_facts.lsb.codename }} main"
+  become: true
+
+- name: install docker-ce
+  ansible.builtin.apt:
+    pkg: terraform
+    state: latest
+    update_cache: yes
+  become: true

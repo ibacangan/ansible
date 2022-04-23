@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+CDPATH="{{ workspace_directory }}/personal"
+for dir in {{ workspace_directory }}/personal/*; do
+  CDPATH=$CDPATH:$dir
+done
+
 if [[ "$(ls {{ export_directory }})" == "" ]]; then
   echo "empty export directory"
 else
