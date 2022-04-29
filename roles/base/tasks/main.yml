@@ -150,3 +150,5 @@
       dex: https://charts.dexidp.io
       ingress-nginx: https://kubernetes.github.io/ingress-nginx
       kubernetes-replicator: https://helm.mittwald.de
+      minio: https://charts.min.io/
+      minio-op: https://operator.min.io/
