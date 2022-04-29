@@ -25,9 +25,6 @@ alias px='ps aux'
 alias df='df --human-readable --inodes'
 alias du1='du --max-depth 1 --human-readable ./ | sort --human-readable'
 
-# TODO: improve
-alias kp='keepass2 /workspace/personal/python/install/qq.kdbx &>/dev/null &'
-
 alias rsync='rsync -av --progress $1 $2'
 
 search_alias() {
