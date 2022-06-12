@@ -44,10 +44,12 @@
     classic: yes
   loop:
     - intellij-idea-ultimate
+    - pycharm-professional
     - clion
     - datagrip
     - kubectl
     - helm
+    - microk8s
   become: true
 
 - name: create workspace directory
@@ -152,3 +154,16 @@
       kubernetes-replicator: https://helm.mittwald.de
       minio: https://charts.min.io/
       minio-op: https://operator.min.io/
+
+- name: install rust
+  ansible.builtin.shell:
+    cmd: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+- name: install cargo apps
+  ansible.builtin.shell:
+    cmd: "cargo install {{item}}"
+  loop:
+    - cargo-update
+    - cargo-watch
+    - cargo-audit
+    - ripgrep
