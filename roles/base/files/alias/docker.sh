@@ -13,9 +13,9 @@ alias dcS='d container stop'
 alias dcr='d container restart'
 function dcsr() { docker container stop $1; docker container rm $1; }
 
-alias dcu='docker-compose up --remove-orphans'
-alias dcud='docker-compose up --remove-orphans -d'
-alias dcd='docker-compose down --volumes --remove-orphans'
+alias dcu='docker compose up --remove-orphans'
+alias dcud='docker compose up --remove-orphans -d'
+alias dcd='docker compose down --volumes --remove-orphans'
 
 alias dp='d pull'
 alias dpp='d pull --tls-verify=false'

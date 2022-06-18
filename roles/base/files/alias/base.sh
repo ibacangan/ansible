@@ -27,6 +27,13 @@ alias du1='du --max-depth 1 --human-readable ./ | sort --human-readable'
 
 alias rsync='rsync -av --progress $1 $2'
 
+b64() {
+  echo -n $1 | base64
+}
+b64d() {
+  echo -n $1 | base64 -d
+}
+
 search_alias() {
   [[ -z $1 ]] && echo no input to search && return 1
 

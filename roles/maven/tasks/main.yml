@@ -22,15 +22,15 @@
   with_dict: "{{ ansible_local }}"
   when: "item.key is match('maven_')"
 
-- name: create export file for MAVEN_HOME
+- name: create export file for M2_HOME
   ansible.builtin.copy:
-    dest: "{{ export_directory }}/MAVEN_HOME"
+    dest: "{{ export_directory }}/M2_HOME"
     content: "{{ system_directory }}/maven/maven_{{ default | default(versions[0]) }}"
 
 - name: add maven to path_env
   ansible.builtin.copy:
     dest: "{{ path_env_directory }}/maven"
-    content: $MAVEN_HOME/bin
+    content: $M2_HOME/bin
 
 - name: install switching maven version script
   ansible.builtin.template:
