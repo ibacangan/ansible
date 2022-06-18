@@ -27,7 +27,7 @@
 
 - name: install docker-ce
   ansible.builtin.apt:
-     pkg: "{{ item }}"
+    pkg: "{{ item }}"
     state: latest
     update_cache: yes
   loop:
