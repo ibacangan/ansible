@@ -154,6 +154,7 @@
       kubernetes-replicator: https://helm.mittwald.de
       minio: https://charts.min.io/
       minio-op: https://operator.min.io/
+      gatekeeper: https://open-policy-agent.github.io/gatekeeper/charts
 
 - name: install rust
   ansible.builtin.shell:
