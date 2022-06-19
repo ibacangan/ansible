@@ -167,3 +167,10 @@
     - cargo-watch
     - cargo-audit
     - ripgrep
+
+- name: increase host file watchers
+  become: true
+  ansible.builtin.copy:
+    src: 20-inotify.conf
+    dest: /etc/sysctl.d/20-inotify.conf
+    mode: 0644

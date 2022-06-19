@@ -11,7 +11,7 @@
   loop: "{{ versions }}"
 
 - name: create final destination directory
-  file:
+  ansible.builtin.file:
     path: "{{ system_directory }}/maven"
     state: directory
 
